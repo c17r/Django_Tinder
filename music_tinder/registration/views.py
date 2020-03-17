@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from forms import UserCreationForm
+from .forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 # Create your views here.

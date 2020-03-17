@@ -83,10 +83,6 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -123,26 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-#STATIC_URL = '/static/'
-#MEDIA_URL = '/media/'
-
-AWS_STORAGE_BUCKET_NAME = 'faketinder'
-AWS_ACCESS_KEY_ID = os.environ['AWS_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_KEY']
-AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 STATICFILES_LOCATION = 'static'
 MEDIAFILES_LOCATION = 'media'
-
-STATICFILES_STORAGE = 'custom_storages.StaticStorage' 
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage' 
-
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
-AWS_HEADERS = {
-    'Access-Control-Allow_Origin' : '*'
-}
 
 STATIC_PATH = os.path.join(BASE_DIR, 'static')
 

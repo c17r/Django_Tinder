@@ -2,3 +2,6 @@
 /env
 /music_tinder/media
 /music_tinder/git
+/11_env
+*.sqlite3
+.DS_STORE
